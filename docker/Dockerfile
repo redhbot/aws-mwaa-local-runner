@@ -32,6 +32,8 @@ COPY config/webserver_config.py ${AIRFLOW_USER_HOME}/webserver_config.py
 
 RUN chown -R airflow: ${AIRFLOW_USER_HOME}
 RUN chmod +x /entrypoint.sh
+RUN yum update -y && \
+    yum install -y tar.x86_64
 
 EXPOSE 8080 5555 8793
 
